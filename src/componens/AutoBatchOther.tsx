@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { flushSync } from "react-dom";
 
 type Todo = {
   userId: number;
@@ -18,7 +19,9 @@ export const AutoBatchOther = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then((res) => res.json())
       .then((data) => {
-        setTodos(data);
+        flushSync(() => {
+          setTodos(data);
+        });
         setIsFinishApi(true);
       })
   }
