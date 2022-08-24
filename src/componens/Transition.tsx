@@ -1,7 +1,8 @@
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { Avatar } from "./Avatar";
+import { TaskList } from "./TaskList";
 
-type Task = {
+export type Task = {
   id: number;
   title: string;
   assignee: string;
@@ -31,16 +32,12 @@ const filteringAssignee = (assignee: string) => {
 }
 
 export const Transition = () => {
-  const [isPending, startTransition] = useTransition();
-
   const [selectedAssignee, setSelectedAssignee] = useState<string>('');
   const [taskList, setTaskList] = useState<Task[]>(tasks);
 
   const onClickAssignee = (assignee: string) => {
     setSelectedAssignee(assignee);
-    startTransition(() => {
-      setTaskList(filteringAssignee(assignee));
-    });
+    setTaskList(filteringAssignee(assignee));
   }
 
   return (
@@ -53,20 +50,7 @@ export const Transition = () => {
       </div>
       <br />
       <button onClick={() => onClickAssignee('')}>リセット</button>
-      {taskList.map((task) => (
-        <div
-          key={task.id}
-          style={{
-            width: '300px',
-            margin: 'auto',
-            background: 'lavender',
-            opacity: isPending ? 0.5 : 1
-          }}
-        >
-          <p>タイトル：{task.title}</p>
-          <p>担当：{task.assignee}</p>
-        </div>
-      ))}
+      <TaskList taskList={taskList} />
     </div>
   )
 }
