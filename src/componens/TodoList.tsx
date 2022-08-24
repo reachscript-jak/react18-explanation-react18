@@ -18,6 +18,7 @@ export const TodoList = () => {
 
   return (
     <div style={{ height: '300px', border: '2px solid gray', background: 'mistyrose', overflowY: 'scroll' }}>
+      <h2>TODO</h2>
       {data?.map((todo) => <p key={todo.id}>{todo.title}</p>)}
     </div>
   )
