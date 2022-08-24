@@ -56,8 +56,6 @@ export const Transition = () => {
       <br />
       <button onClick={() => setIsShowList(!isShowList)}>表示/非表示</button>
       {isShowList && <TaskList taskList={taskList} />}
-      <hr />
-      <ReactQuery />
     </div>
   )
 }
