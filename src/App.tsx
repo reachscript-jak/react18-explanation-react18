@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import './App.css';
 import { AutoBatchEventHandler } from './componens/AutoBatchEventHandler';
 import { AutoBatchOther } from './componens/AutoBatchOther';
@@ -12,7 +13,9 @@ function App() {
       <hr />
       <Transition />
       <hr />
-      <ReactQuery />
+      <Suspense fallback={<p>ローディング中だよ〜</p>}>
+        <ReactQuery />
+      </Suspense>
     </div>
   );
 }
