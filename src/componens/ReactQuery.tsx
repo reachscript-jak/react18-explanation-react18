@@ -8,7 +8,7 @@ type Album = {
 }
 
 const fetchAlbums = async () => {
-  const result = await axios.get<Album[]>('https://jsonplaceholder.typicode.com/albums');
+  const result = await axios.get<Album[]>('https://jsonplaceholder.typicode.com/albumsxx');
   return result.data;
 }
 
