@@ -9,9 +9,13 @@ export const ReactQuery = () => {
     <div style={{ display: 'flex', padding: '16px' }}>
       <Sidebar />
       <div style={{ flexGrow: 1 }}>
-        <ErrorBoundary fallback={<h1>Listエラーだよ〜</h1>}>
-          <Suspense fallback={<p>Listローディング中だよ〜</p>}>
+        <ErrorBoundary fallback={<h1>AlbumListエラーだよ〜</h1>}>
+          <Suspense fallback={<p>AlbumListローディング中だよ〜</p>}>
             <AlbumList />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary fallback={<h1>TodoListエラーだよ〜</h1>}>
+          <Suspense fallback={<p>TodoListローディング中だよ〜</p>}>
             <TodoList />
           </Suspense>
         </ErrorBoundary>
