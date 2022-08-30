@@ -14,7 +14,7 @@ type Album = {
 }
 
 const fetchAlbums = async () => {
-  const result = await axios.get<Album[]>('https://jsonplaceholder.typicode.com/albums').then(await sleep(10000));
+  const result = await axios.get<Album[]>('https://jsonplaceholder.typicode.com/albums').then(await sleep(5000));
   return result.data;
 }
 
